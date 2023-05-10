@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+    crossorigin="anonymous"></script>
+  <style>
+    span {
+      background-color: gray;
+      color: white;
+    }
+
+    .selected {
+      background-color: white;
+      color: black;
+      border: 1px black solid;
+    }
+  </style>
+
+  <script>
+    function select(element) {
+      // 모든 클래스 삭제
+      $('span').removeClass();
+
+      // 누른 애만 클래스 추가
+      // $(element).attr('class', 'selected');
+      $(element).addClass('selected');
+    }
+  </script>
+</head>
+
+<body>
+  <span class="selected" onclick="select(this)">html</span>
+  <span onclick="select(this)">css</span>
+  <span onclick="select(this)">javascript</span>
+</body>
+
+</html>
