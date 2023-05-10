@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+    crossorigin="anonymous"></script>
+
+  <script>
+    function addNews() {
+      const news = $('#input_text').val();
+
+      if (news === null || news.length === 0) {
+        return;
+      }
+
+      $('#box').append(`<li>${news}</li>`)
+
+      $('#input_text').val('');
+    }
+  </script>
+
+  <style>
+    #box {
+      padding: 10px;
+      background-color: #E6E6EB;
+    }
+
+    li {
+      padding: 10px;
+      margin: 10px;
+      background-color: white;
+      list-style: none;
+    }
+  </style>
+</head>
+
+<body>
+  <input id="input_text" type="text">
+  <input type="button" onclick="addNews()" value="등록하기">
+  <ul id="box">
+    <li>박지성 어쩌구</li>
+    <li>안정환 어쩌구</li>
+    <li>이영표 KBS 어쩌구</li>
+  </ul>
+</body>
+
+</html>
