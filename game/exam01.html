@@ -45,11 +45,22 @@
       });
 
       function moveRight() {
-        pompom.animate({ left: '+=50px' });
+        const pompomRightMargin
+        = $('#pompom').css('right').replace('px', '');
+        
+        // 오른쪽 벽에 닿았는지
+        if (pompomRightMargin > 0) {
+          pompom.animate({ left: '+=10px' }, 0);
+        }
+
+        // 보정
+        if (pompomRightMargin < 0) {
+          pompom.animate({ left: '250px' }, 0);
+        }
       }
 
       function moveLeft() {
-        pompom.animate({ left: '-=50px' });
+        pompom.animate({ left: '-=10px' }, 0);
       }
     });
   </script>
