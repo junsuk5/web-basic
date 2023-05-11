@@ -28,6 +28,7 @@
     #enemy {
       position: absolute;
       width: 20px;
+      height: 20px;
       transform: scaleX(-1);
       right: 0px;
       bottom: 0px;
@@ -59,28 +60,28 @@
 
       function checkGameOver() {
         setInterval(function () {
-          const heroLeft = hero.css('left').replace('px', '');
-          const heroRight = hero.css('right').replace('px', '');
-          const heroBottom = hero.css('bottom').replace('px', '');
+          const heroLeft = Number(hero.css('left').replace('px', ''));
+          const heroRight = heroLeft + 50;
+          const heroBottom = Number(hero.css('bottom').replace('px', ''));
 
-          const enemyLeft = enemy.css('left').replace('px', '');
-          const enemyRight = enemy.css('right').replace('px', '');
-          const enemyTop = enemy.css('top').replace('px', '');
+          const enemyLeft = Number(enemy.css('left').replace('px', ''));
+          const enemyRight = enemyLeft + 20;
+          const enemyTop = 20;
 
           const isGameOver
-            = (heroRight < enemyLeft && heroLeft < enemyRight)
+            = heroLeft < enemyLeft && enemyLeft < heroRight
             && heroBottom < enemyTop;
 
           // console.log(`heroRight: ${heroRight}`);
           // console.log(`heroBottom: ${heroBottom}`);
           // console.log(`enemyLeft: ${enemyLeft}`);
           // console.log(`enemyTop: ${enemyTop}`);
-          console.log(`isGameOver: ${isGameOver}`);
+          console.log(isGameOver);
 
-          // if (isGameOver) {
-          //   hero.stop();
-          //   enemy.stop();
-          // }
+          if (isGameOver) {
+            hero.stop();
+            enemy.stop();
+          }
 
         }, 1000 / 60);
       }
