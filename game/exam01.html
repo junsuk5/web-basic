@@ -29,10 +29,28 @@
 
   <script>
     $(function () {
+      const pompom = $('#pompom');
+
       // 키보드 이벤트 정의
-      $('html').keydown(function () {
-        console.log('이동!!');
+      $('html').keydown(function (e) {
+        switch (e.key) {
+          case 'ArrowRight':
+            moveRight();
+            break;
+          case 'ArrowLeft':
+            moveLeft();
+            break;
+        }
+        console.log(e.key);
       });
+
+      function moveRight() {
+        pompom.animate({ left: '+=50px' });
+      }
+
+      function moveLeft() {
+        pompom.animate({ left: '-=50px' });
+      }
     });
   </script>
 </head>
