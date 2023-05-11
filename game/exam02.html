@@ -35,6 +35,12 @@
   </style>
 
   <script>
+    const ENEMY_SPEED_MIN_EASY = 1000;
+    const ENEMY_SPEED_MAX_EASY = 3000;
+
+    const ENEMY_SPEED_MIN_HARD = 500;
+    const ENEMY_SPEED_MAX_HARD = 1000;
+
     $(function () {
       const hero = $('#hero');
       const enemy = $('#enemy');
@@ -47,13 +53,50 @@
       function gameStart() {
         setKeyboardEvent();
         enemyStart();
+
+        checkGameOver();
+      }
+
+      function checkGameOver() {
+        setInterval(function () {
+          const heroLeft = hero.css('left').replace('px', '');
+          const heroRight = hero.css('right').replace('px', '');
+          const heroBottom = hero.css('bottom').replace('px', '');
+
+          const enemyLeft = enemy.css('left').replace('px', '');
+          const enemyRight = enemy.css('right').replace('px', '');
+          const enemyTop = enemy.css('top').replace('px', '');
+
+          const isGameOver
+            = (heroRight < enemyLeft && heroLeft < enemyRight)
+            && heroBottom < enemyTop;
+
+          // console.log(`heroRight: ${heroRight}`);
+          // console.log(`heroBottom: ${heroBottom}`);
+          // console.log(`enemyLeft: ${enemyLeft}`);
+          // console.log(`enemyTop: ${enemyTop}`);
+          console.log(`isGameOver: ${isGameOver}`);
+
+          // if (isGameOver) {
+          //   hero.stop();
+          //   enemy.stop();
+          // }
+
+        }, 1000 / 60);
+      }
+
+      function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
       }
 
       function enemyStart() {
+        // 속도 조절
+        const speed = getRandomNumber(1000, 3000);
+
         // 적이 오른쪽에서 왼쪽으로 이동
         enemy.animate(
           { right: '350px' },
-          1500,
+          speed,
           'linear',
           function () {
             enemy.css('right', '-50px');
