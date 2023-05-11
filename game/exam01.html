@@ -73,7 +73,7 @@
           = $('#pompom').css('right').replace('px', '');
 
         // 오른쪽 벽에 닿았는지
-        if (pompomRightMargin > 0) {
+        if (pompomRightMargin >= 0) {
           pompom.animate({ left: '+=10px' }, 0);
         }
 
