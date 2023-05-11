@@ -24,11 +24,20 @@
       height: 50px;
       border: 1px solid;
     }
+
+    #enemy {
+      position: absolute;
+      width: 20px;
+      transform: scaleX(-1);
+      right: 0px;
+      bottom: 0px;
+    }
   </style>
 
   <script>
     $(function () {
       const hero = $('#hero');
+      const enemy = $('#enemy');
 
       // 점프 중인지?
       let isJumping = false;
@@ -37,6 +46,12 @@
 
       function gameStart() {
         setKeyboardEvent();
+        enemyStart();
+      }
+
+      function enemyStart() {
+        // 적이 오른쪽에서 왼쪽으로 이동
+        enemy.animate({ right: '300px' }, 1500, 'linear');
       }
 
       function jump() {
@@ -67,6 +82,8 @@
 <body>
   <div id="container">
     <img id="hero" src="images/pompom.png" alt="">
+
+    <img id="enemy" src="images/enemy.png" alt="">
   </div>
 </body>
 
