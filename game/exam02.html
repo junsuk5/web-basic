@@ -52,6 +52,8 @@
       gameStart();
 
       function gameStart() {
+        // $('#gameover_screen').hide();
+
         setKeyboardEvent();
         enemyStart();
 
@@ -135,6 +137,11 @@
     <img id="hero" src="images/pompom.png" alt="">
 
     <img id="enemy" src="images/enemy.png" alt="">
+
+    <div id="gameover_screen">
+      Game Over
+      <input type="button" value="재시작">
+    </div>
   </div>
 </body>
 
