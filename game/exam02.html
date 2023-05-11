@@ -60,6 +60,18 @@
         checkGameOver();
       }
 
+      function isColliding(el1, el2) {
+        const rect1 = el1.getBoundingClientRect();
+        const rect2 = el2.getBoundingClientRect();
+
+        return !(
+          rect1.bottom < rect2.top ||
+          rect1.top > rect2.bottom ||
+          rect1.right < rect2.left ||
+          rect1.left > rect2.right
+        );
+      }
+
       function checkGameOver() {
         setInterval(function () {
           const heroLeft = Number(hero.css('left').replace('px', ''));
@@ -80,7 +92,7 @@
           // console.log(`enemyTop: ${enemyTop}`);
           console.log(isGameOver);
 
-          if (isGameOver) {
+          if (isColliding(hero[0], enemy[0])) {
             hero.stop();
             enemy.stop();
           }
