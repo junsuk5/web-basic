@@ -24,12 +24,16 @@
       width: 50px;
       height: 50px;
       border: 1px solid;
+      display: none;
     }
   </style>
 
   <script>
     $(function () {
       const pompom = $('#pompom');
+      let count = 3;
+
+      gameStart();
 
       // 키보드 이벤트 정의
       $('html').keydown(function (e) {
@@ -44,10 +48,30 @@
         console.log(e.key);
       });
 
+      function gameStart() {
+        countDown();
+
+        // 3초 있다가 나오기
+        setTimeout(function () {
+          pompom.show();
+        }, 3000);
+      }
+
+      function countDown() {
+        let timer = setInterval(function () {
+          console.log(count);
+          count--;
+          if (count < 0) {
+            // 인터벌 취소
+            clearInterval(timer);
+          }
+        }, 1000);
+      }
+
       function moveRight() {
         const pompomRightMargin
-        = $('#pompom').css('right').replace('px', '');
-        
+          = $('#pompom').css('right').replace('px', '');
+
         // 오른쪽 벽에 닿았는지
         if (pompomRightMargin > 0) {
           pompom.animate({ left: '+=10px' }, 0);
