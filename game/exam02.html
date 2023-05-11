@@ -51,7 +51,14 @@
 
       function enemyStart() {
         // 적이 오른쪽에서 왼쪽으로 이동
-        enemy.animate({ right: '300px' }, 1500, 'linear');
+        enemy.animate(
+          { right: '350px' },
+          1500,
+          'linear',
+          function () {
+            enemy.css('right', '-50px');
+            enemyStart();
+          });
       }
 
       function jump() {
@@ -72,7 +79,7 @@
               }
               break;
           }
-          console.log(e.key);
+          // console.log(e.key);
         });
       }
     });
