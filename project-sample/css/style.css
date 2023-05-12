@@ -1,0 +1,39 @@
+#background {
+  position: absolute;
+  width: 100%;
+  height: 1000px;
+  border: 1px solid black;
+}
+
+#mario {
+  width: 100px;
+  height: 100px;
+  bottom: 100px;
+  position: absolute;
+  background-color: aqua;
+}
+
+#killer {
+  width: 100px;
+  height: 100px;
+  bottom: 100px;
+  right: -300px;
+  position: absolute;
+}
+
+.sliding-background {
+  background: url("../assets/bg.jpeg");
+  width: 200%;
+  height: 100%;
+  animation: slide 30s linear infinite;
+}
+
+@keyframes slide {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(-1680px, 0);
+  }
+}
