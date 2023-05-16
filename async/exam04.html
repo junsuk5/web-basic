@@ -6,6 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+  <style>
+    .card {
+      border: 1px solid black;
+      margin: 5px;
+      padding: 5px;
+      list-style: none;
+    }
+  </style>
+
   <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
     crossorigin="anonymous"></script>
   <script>
@@ -617,7 +627,7 @@
       const jsonArray = fakeData;
 
       jsonArray.forEach(e => {
-        $('ul').append(`<li onclick="nextPage(${e.id})">${e.title}</li>`);
+        $('ul').append(`<li class="card" onclick="nextPage(${e.id})">${e.title}</li>`);
       });
     }
 
