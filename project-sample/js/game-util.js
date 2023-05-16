@@ -58,7 +58,7 @@ function isMarioDie() {
 }
 
 $("html").keydown(function (event) {
-  if (event.key == ' ') {
+  if (event.key == " ") {
     jump();
   }
 });
