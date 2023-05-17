@@ -16,9 +16,13 @@
 
 <body>
   <div id="app">
-    아이템 {{ movies.length }} 개
+    <input type="text" placeholder="제목" v-model="query">
+    {{ query }}
+    <div>
+      아이템 {{ movies.length }} 개
+    </div>
     <ul>
-      <li v-for="movie in movies">
+      <li v-for="movie in filteredMovies">
         <img :src="movie.posterUrl" alt="" class="poster">
         {{ movie.title }}
       </li>
@@ -29,10 +33,17 @@
     const app = new Vue({
       el: '#app',
       data: {
-        movies: []
+        movies: [],
+        query: ''
       },
       created: function () {
         this.fetchMovies();
+      },
+      computed: {
+        filteredMovies: function () {
+          return this.movies
+            .filter(movie => movie.title.includes(this.query));
+        }
       },
       methods: {
         fetchMovies: async function () {
