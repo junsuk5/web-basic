@@ -1,0 +1,51 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #ccc;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+main {
+  margin: 20px 0;
+}
+
+section {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+ul.posters {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+li {
+  margin: 10px 0;
+}
+
+img {
+  width: 150px;
+}
+
+footer {
+  background-color: #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+ul.posters li img {
+  box-shadow: 5px 5px 5px black;
+}
